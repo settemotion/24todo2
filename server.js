@@ -31,8 +31,12 @@ app.use(session({
   cookie: {
     secure: process.env.NODE_ENV === 'production',
     httpOnly: true,
-    maxAge: 24 * 60 * 60 * 1000 // 24小时
-  }
+    maxAge: 24 * 60 * 60 * 1000, // 24小时
+    sameSite: 'lax',
+    domain: process.env.COOKIE_DOMAIN || undefined,
+    path: '/'
+  },
+  proxy: true // 添加这个选项以支持通过代理的请求
 }));
 
 // 静态文件服务

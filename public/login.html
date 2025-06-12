@@ -267,7 +267,7 @@
                     if (isLoginMode) {
                         showSuccess('登录成功，正在跳转...');
                         setTimeout(() => {
-                            window.location.href = '/';
+                            window.location.replace(window.location.origin + '/');
                         }, 1000);
                     } else {
                         showSuccess('注册成功！请登录');
